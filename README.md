@@ -1,6 +1,3 @@
-# portfolio-website
-Portfolio website for AI/ML Positions.
-
 # Welcome to your Lovable project
 
 ## Project info
