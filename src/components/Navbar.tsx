@@ -17,7 +17,7 @@ const Navbar = ({ scrollToSection }: NavbarProps) => {
             }}
           />
           <div>
-            <div className="text-sm font-semibold tracking-widest uppercase">Your Name</div>
+            <div className="text-sm font-semibold tracking-widest uppercase">Ayush Kumar</div>
             <div className="text-xs text-muted-foreground">AI & ML Engineer</div>
           </div>
         </div>

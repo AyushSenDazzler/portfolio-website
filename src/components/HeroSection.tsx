@@ -11,26 +11,26 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
         {/* Left Content */}
         <div>
           <div className="flex flex-wrap gap-2 mb-5">
-            <div className="text-xs px-3 py-1.5 rounded-full border border-muted-foreground/50 bg-card/90 text-muted-foreground inline-flex items-center gap-2">
+            <div className="text-xs px-3 py-1.5 rounded-full border border-muted-foreground/50 bg-card/90 text-muted-foreground inline-flex items-center gap-2 animate-fade-in">
               <span>👋</span>
-              <span>Hey, I'm <strong className="text-primary font-medium">Your Name</strong></span>
+              <span>Hey, I'm <strong className="text-primary font-medium">Ayush Kumar</strong></span>
             </div>
-            <div className="text-xs px-3 py-1.5 rounded-full border border-muted-foreground/50 bg-card/90 text-muted-foreground inline-flex items-center gap-2">
+            <div className="text-xs px-3 py-1.5 rounded-full border border-muted-foreground/50 bg-card/90 text-muted-foreground inline-flex items-center gap-2 animate-fade-in [animation-delay:100ms]">
               <span>🎓</span>
               <span>B.Tech & GATE (Data Science & AI)</span>
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4 animate-fade-in [animation-delay:200ms]">
             Building data‑driven<br />
             <span className="hero-headline-gradient">AI & ML systems</span>.
           </h1>
 
-          <p className="text-muted-foreground max-w-md leading-relaxed mb-6">
+          <p className="text-muted-foreground max-w-md leading-relaxed mb-6 animate-fade-in [animation-delay:300ms]">
             Early‑career engineer crafting reliable machine learning pipelines, solid C & Python foundations, and practical models for real‑world data problems. Focused on NLP, transformers, and data engineering workflows.
           </p>
 
-          <div className="flex flex-wrap gap-3 items-center mb-6">
+          <div className="flex flex-wrap gap-3 items-center mb-6 animate-fade-in [animation-delay:400ms]">
             <button onClick={() => scrollToSection('projects')} className="btn-portfolio btn-primary-portfolio">
               View featured projects
               <ArrowRight className="w-4 h-4" />
@@ -39,12 +39,13 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
               GitHub profile
               <ExternalLink className="w-4 h-4" />
             </a>
-            <button onClick={() => scrollToSection('contact')} className="btn-portfolio btn-ghost-portfolio">
-              Contact / Availability
-            </button>
+            <a href="#" className="btn-portfolio btn-ghost-portfolio">
+              Download Resume
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </div>
 
-          <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
+          <div className="flex flex-wrap gap-4 text-xs text-muted-foreground animate-fade-in [animation-delay:500ms]">
             <div className="pl-3 border-l border-muted-foreground/30">
               <strong className="block text-base text-foreground">5+ projects</strong>
               <span>End‑to‑end ML & data pipelines.</span>
@@ -89,9 +90,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
                 <pre className="whitespace-pre-wrap text-foreground">
 <span className="code-comment"># scoring candidates by skills & projects</span>
 <span className="code-keyword">def</span> <span className="code-func">score_profile</span>(skills, projects):
-    ml = {'{'}
-    <span className="code-num">'transformers'</span>, <span className="code-num">'pytorch'</span>, <span className="code-num">'sql'</span>
-    {'}'}
+    ml = {"{"}<span className="code-num">'transformers'</span>, <span className="code-num">'pytorch'</span>, <span className="code-num">'sql'</span>{"}"}
     score = len(ml & set(skills)) * <span className="code-num">2</span> + len(projects)
     <span className="code-keyword">return</span> score</pre>
               </div>

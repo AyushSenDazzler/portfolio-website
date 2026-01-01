@@ -5,6 +5,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import StarfieldBackground from "@/components/StarfieldBackground";
 
 const Index = () => {
   const scrollToSection = (id: string) => {
@@ -17,10 +18,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <StarfieldBackground />
       <Navbar scrollToSection={scrollToSection} />
       
-      <main className="container pb-14">
+      <main className="container pb-14 relative z-10">
         <HeroSection scrollToSection={scrollToSection} />
         <ProjectsSection />
         <SkillsSection />
