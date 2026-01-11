@@ -1,6 +1,31 @@
-import { ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, X, ChevronRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
-const projects = [
+interface Project {
+  tag: string;
+  title: string;
+  subtitle: string;
+  body: string;
+  pills: string[];
+  accentPills: number[];
+  metric: string;
+  links: { label: string; href: string }[];
+  details?: {
+    overview: string;
+    features: string[];
+    challenges: string;
+    outcome: string;
+  };
+}
+
+const projects: Project[] = [
   {
     tag: "NLP · Transformers",
     title: "Context‑aware text classifier",
@@ -9,7 +34,19 @@ const projects = [
     pills: ["Python", "PyTorch", "Transformers", "scikit‑learn", "FastAPI"],
     accentPills: [0, 1],
     metric: "Macro‑F1: +8–10% over baseline.",
-    links: [{ label: "GitHub", href: "#" }, { label: "Demo / Notebook", href: "#" }]
+    links: [{ label: "GitHub", href: "#" }, { label: "Demo / Notebook", href: "#" }],
+    details: {
+      overview: "A production-ready NLP system designed to automatically categorize customer support tickets into multiple categories with high accuracy, even with severely imbalanced class distributions.",
+      features: [
+        "Custom data preprocessing pipeline with text cleaning and normalization",
+        "Fine-tuned DistilBERT model with class-weighted loss function",
+        "Inference API built with FastAPI for real-time predictions",
+        "Comprehensive evaluation with confusion matrices and per-class metrics",
+        "Docker containerization for easy deployment"
+      ],
+      challenges: "The main challenge was handling extreme class imbalance (some categories had 50x fewer samples). Solved using a combination of SMOTE oversampling, class weights, and focal loss.",
+      outcome: "Achieved 8-10% improvement in macro-F1 score compared to baseline models, with inference latency under 100ms per request."
+    }
   },
   {
     tag: "Data engineering · Spark",
@@ -19,7 +56,19 @@ const projects = [
     pills: ["PySpark", "Azure Databricks", "SQL", "Delta / Parquet"],
     accentPills: [0],
     metric: "~2–3x faster query times vs naive approach.",
-    links: [{ label: "GitHub", href: "#" }]
+    links: [{ label: "GitHub", href: "#" }],
+    details: {
+      overview: "An end-to-end data engineering solution that transforms raw event logs into clean, aggregated tables optimized for BI dashboards and analytical queries.",
+      features: [
+        "PySpark ETL jobs processing millions of events daily",
+        "Delta Lake for ACID transactions and time travel",
+        "Partitioning strategy optimized for common query patterns",
+        "Automated data quality checks and alerting",
+        "Scheduled workflows in Databricks with dependency management"
+      ],
+      challenges: "Initial queries were slow due to data skew and inefficient joins. Implemented broadcast joins, partition pruning, and caching strategies to optimize performance.",
+      outcome: "Reduced query times by 2-3x and enabled near real-time dashboard updates with hourly data refreshes."
+    }
   },
   {
     tag: "ML fundamentals · C & Python",
@@ -29,11 +78,25 @@ const projects = [
     pills: ["C", "Python", "Data structures", "Unit tests"],
     accentPills: [0, 1],
     metric: "Focus: clarity, tests, and performance.",
-    links: [{ label: "GitHub", href: "#" }]
+    links: [{ label: "GitHub", href: "#" }],
+    details: {
+      overview: "A deep-dive educational project implementing core ML algorithms from first principles to understand the mathematics and computational trade-offs behind common techniques.",
+      features: [
+        "Linear regression with gradient descent and normal equations",
+        "Logistic regression with regularization",
+        "k-NN with KD-tree optimization for faster lookups",
+        "Decision trees with Gini and entropy splitting criteria",
+        "Comprehensive unit tests comparing results with scikit-learn"
+      ],
+      challenges: "Implementing numerically stable algorithms in C required careful attention to floating-point precision and memory management.",
+      outcome: "Gained deep understanding of ML fundamentals, memory optimization, and algorithm complexity. All implementations pass unit tests against scikit-learn reference implementations."
+    }
   }
 ];
 
 const ProjectsSection = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   return (
     <section id="projects" className="pt-14">
       <div className="mb-5">
@@ -47,9 +110,13 @@ const ProjectsSection = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {projects.map((project, i) => (
-          <article key={i} className="card-portfolio">
+          <article 
+            key={i} 
+            className="card-portfolio cursor-pointer group"
+            onClick={() => setSelectedProject(project)}
+          >
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5">{project.tag}</div>
-            <h3 className="text-base font-semibold mb-1.5">{project.title}</h3>
+            <h3 className="text-base font-semibold mb-1.5 group-hover:text-primary transition-colors">{project.title}</h3>
             <p className="text-xs text-muted-foreground mb-2">{project.subtitle}</p>
             <p className="text-sm text-foreground/85 mb-3">{project.body}</p>
             
@@ -63,18 +130,101 @@ const ProjectsSection = () => {
 
             <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
               <span dangerouslySetInnerHTML={{ __html: project.metric.replace(/(\+[\d–%]+|~[\d–x]+)/g, '<strong class="text-foreground">$1</strong>') }} />
-              <div className="flex flex-wrap gap-2">
-                {project.links.map((link, k) => (
-                  <a key={k} href={link.href} className="link-pill">
-                    <span>{link.label}</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                ))}
+              <div className="flex items-center gap-1 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-xs">View details</span>
+                <ChevronRight className="w-3 h-3" />
               </div>
             </div>
           </article>
         ))}
       </div>
+
+      {/* Project Details Modal */}
+      <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-card border-border/50 backdrop-blur-xl">
+          {selectedProject && (
+            <>
+              <DialogHeader>
+                <div className="text-[10px] uppercase tracking-widest text-primary mb-1">
+                  {selectedProject.tag}
+                </div>
+                <DialogTitle className="text-xl font-semibold">
+                  {selectedProject.title}
+                </DialogTitle>
+                <DialogDescription className="text-muted-foreground">
+                  {selectedProject.subtitle}
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-5 mt-4">
+                {/* Overview */}
+                <div>
+                  <h4 className="text-sm font-medium text-foreground mb-2">Overview</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {selectedProject.details?.overview}
+                  </p>
+                </div>
+
+                {/* Key Features */}
+                <div>
+                  <h4 className="text-sm font-medium text-foreground mb-2">Key Features</h4>
+                  <ul className="space-y-1.5">
+                    {selectedProject.details?.features.map((feature, i) => (
+                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Challenges */}
+                <div>
+                  <h4 className="text-sm font-medium text-foreground mb-2">Challenges & Solutions</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {selectedProject.details?.challenges}
+                  </p>
+                </div>
+
+                {/* Outcome */}
+                <div>
+                  <h4 className="text-sm font-medium text-foreground mb-2">Outcome</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {selectedProject.details?.outcome}
+                  </p>
+                </div>
+
+                {/* Tech Stack */}
+                <div>
+                  <h4 className="text-sm font-medium text-foreground mb-2">Tech Stack</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {selectedProject.pills.map((pill, j) => (
+                      <span key={j} className={selectedProject.accentPills.includes(j) ? "pill pill-accent" : "pill"}>
+                        {pill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Links */}
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
+                  {selectedProject.links.map((link, k) => (
+                    <a 
+                      key={k} 
+                      href={link.href} 
+                      className="link-pill"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span>{link.label}</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
