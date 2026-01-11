@@ -31,21 +31,21 @@ const ContactSection = () => {
           <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5">Preferred channels</div>
           <h3 className="text-base font-semibold mb-3">Let's collaborate</h3>
           <p className="text-sm text-foreground/85 mb-4">
-            Open to internships, full‑time roles, and freelance project work in ML engineering, data engineering, and applied ML.
+            Open to full-time and freelance opportunities in ML engineering, NLP, and applied AI development.
           </p>
           
           <div className="space-y-2">
-            <a href="mailto:your.email@example.com" className="flex items-center gap-3 px-3 py-2 rounded-full bg-card/90 border border-border/50 text-sm text-muted-foreground hover:border-primary/50 transition-colors">
+            <a href="mailto:ayushraj84341@gmail.com" className="flex items-center gap-3 px-3 py-2 rounded-full bg-card/90 border border-border/50 text-sm text-muted-foreground hover:border-primary/50 transition-colors">
               <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-              <span><strong className="text-foreground font-medium">Email:</strong> your.email@example.com</span>
+              <span><strong className="text-foreground font-medium">Email:</strong> ayushraj84341@gmail.com</span>
             </a>
-            <a href="https://www.linkedin.com/in/your-link" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-3 py-2 rounded-full bg-card/90 border border-border/50 text-sm text-muted-foreground hover:border-primary/50 transition-colors">
+            <a href="https://linkedin.com/in/ayush-kumar-84431820a" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-3 py-2 rounded-full bg-card/90 border border-border/50 text-sm text-muted-foreground hover:border-primary/50 transition-colors">
               <Linkedin className="w-4 h-4 text-primary flex-shrink-0" />
-              <span><strong className="text-foreground font-medium">LinkedIn:</strong> /in/your-link</span>
+              <span><strong className="text-foreground font-medium">LinkedIn:</strong> /in/ayush-kumar</span>
             </a>
-            <a href="https://github.com/your-username" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-3 py-2 rounded-full bg-card/90 border border-border/50 text-sm text-muted-foreground hover:border-primary/50 transition-colors">
+            <a href="https://github.com/AyushSenDazzler" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-3 py-2 rounded-full bg-card/90 border border-border/50 text-sm text-muted-foreground hover:border-primary/50 transition-colors">
               <Github className="w-4 h-4 text-primary flex-shrink-0" />
-              <span><strong className="text-foreground font-medium">GitHub:</strong> @your-username</span>
+              <span><strong className="text-foreground font-medium">GitHub:</strong> @ayushsendazzler</span>
             </a>
           </div>
         </div>

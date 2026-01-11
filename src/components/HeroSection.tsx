@@ -17,7 +17,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
             </div>
             <div className="text-xs px-3 py-1.5 rounded-full border border-muted-foreground/50 bg-card/90 text-muted-foreground inline-flex items-center gap-2 animate-fade-in [animation-delay:100ms]">
               <span>🎓</span>
-              <span>B.Tech & GATE (Data Science & AI)</span>
+              <span>B.S Data Science & Applications)</span>
             </div>
           </div>
 
@@ -27,7 +27,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
           </h1>
 
           <p className="text-muted-foreground max-w-md leading-relaxed mb-6 animate-fade-in [animation-delay:300ms]">
-            Early‑career engineer crafting reliable machine learning pipelines, solid C & Python foundations, and practical models for real‑world data problems. Focused on NLP, transformers, and data engineering workflows.
+            ML engineer building production-ready pipelines and intelligent systems using Python, PyTorch, and transformers. Specialized in NLP, deep learning, and scalable data workflows that solve real business problems.
           </p>
 
           <div className="flex flex-wrap gap-3 items-center mb-6 animate-fade-in [animation-delay:400ms]">
@@ -35,7 +35,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
               View featured projects
               <ArrowRight className="w-4 h-4" />
             </button>
-            <a href="https://github.com/your-username" target="_blank" rel="noreferrer" className="btn-portfolio btn-ghost-portfolio">
+            <a href="https://github.com/AyushSenDazzler" target="_blank" rel="noreferrer" className="btn-portfolio btn-ghost-portfolio">
               GitHub profile
               <ExternalLink className="w-4 h-4" />
             </a>
@@ -48,10 +48,10 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
           <div className="flex flex-wrap gap-4 text-xs text-muted-foreground animate-fade-in [animation-delay:500ms]">
             <div className="pl-3 border-l border-muted-foreground/30">
               <strong className="block text-base text-foreground">5+ projects</strong>
-              <span>End‑to‑end ML & data pipelines.</span>
+              <span>End‑to‑end ML model pipelines.</span>
             </div>
             <div className="pl-3 border-l border-muted-foreground/30 max-w-[220px]">
-              Actively exploring <span className="text-success">transformers, PyTorch, SQL optimizations, and Azure Databricks</span> for scalable ML systems.
+              Actively exploring <span className="text-success">Python, PyTorch, & Transformers</span> for scalable ML systems.
             </div>
           </div>
         </div>
