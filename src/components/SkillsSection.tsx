@@ -21,7 +21,7 @@ const skillGroups = [
     skills: [
       { name: "Pandas", accent: true },
       { name: "Numpy", accent: true },
-      { name: "Seaborn", accent: false }
+      { name: "Seaborn", accent: false },
       { name: "PySpark", accent: true },
       { name: "Polars", accent: false }
     ]
