@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Linkedin } from "lucide-react";
 
 interface NavbarProps {
   scrollToSection: (id: string) => void;
@@ -22,19 +22,43 @@ const Navbar = ({ scrollToSection }: NavbarProps) => {
           </div>
         </div>
         
-        <nav className="hidden md:flex items-center gap-2 text-sm">
-          <button onClick={() => scrollToSection('hero')} className="chip chip-primary">
-            <span>Portfolio</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-          <button onClick={() => scrollToSection('projects')} className="chip">Projects</button>
-          <button onClick={() => scrollToSection('skills')} className="chip">Skills</button>
-          <button onClick={() => scrollToSection('experience')} className="chip">Timeline</button>
-          <button onClick={() => scrollToSection('contact')} className="chip">
-            <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_0_5px_hsl(var(--success-glow))]" />
-            <span>Contact</span>
-          </button>
-        </nav>
+        <div className="flex items-center gap-4">
+          <nav className="hidden md:flex items-center gap-2 text-sm">
+            <button onClick={() => scrollToSection('hero')} className="chip chip-primary">
+              <span>Portfolio</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+            <button onClick={() => scrollToSection('projects')} className="chip">Projects</button>
+            <button onClick={() => scrollToSection('skills')} className="chip">Skills</button>
+            <button onClick={() => scrollToSection('experience')} className="chip">Timeline</button>
+            <button onClick={() => scrollToSection('contact')} className="chip">
+              <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_0_5px_hsl(var(--success-glow))]" />
+              <span>Contact</span>
+            </button>
+          </nav>
+          
+          {/* Social Links */}
+          <div className="flex items-center gap-2">
+            <a 
+              href="https://github.com/AyushSenDazzler" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+            <a 
+              href="https://linkedin.com/in/your-profile" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );

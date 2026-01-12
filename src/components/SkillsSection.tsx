@@ -3,7 +3,6 @@ const skillGroups = [
     title: "Languages",
     skills: [
       { name: "Python", accent: true },
-      { name: "C", accent: true },
       { name: "SQL", accent: false },
       { name: "Bash", accent: false }
     ]
@@ -12,29 +11,29 @@ const skillGroups = [
     title: "ML / DL",
     skills: [
       { name: "PyTorch", accent: true },
-      { name: "TensorFlow", accent: false },
       { name: "scikit‑learn", accent: false },
       { name: "Transformers", accent: false },
       { name: "NLP", accent: false }
     ]
   },
   {
-    title: "Data & Engineering",
+    title: "Data Manupulation & EDA",
     skills: [
       { name: "Pandas", accent: true },
+      { name: "Numpy", accent: true },
+      { name: "Seaborn", accent: false }
       { name: "PySpark", accent: true },
-      { name: "Databricks", accent: false },
-      { name: "ETL", accent: false },
-      { name: "SQL optimization", accent: false }
+      { name: "Polars", accent: false }
     ]
   },
   {
     title: "Cloud & Dev",
     skills: [
+      { name: "AWS", accent: true },
       { name: "Azure", accent: true },
       { name: "Git & GitHub", accent: false },
-      { name: "CI basics", accent: false },
-      { name: "Docker (basic)", accent: false }
+      { name: "CI/CD", accent: false },
+      { name: "Docker", accent: false }
     ]
   },
   {
@@ -43,7 +42,8 @@ const skillGroups = [
       { name: "NLP", accent: true },
       { name: "Recommendation", accent: false },
       { name: "Tabular ML", accent: false },
-      { name: "Time‑series (basic)", accent: false }
+      { name: "Credit-Risk", accent: true },
+      { name: "Time‑series", accent: false }
     ]
   },
   {
