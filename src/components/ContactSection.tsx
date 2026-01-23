@@ -98,10 +98,6 @@ const ContactSection = () => {
               Send message
               <ArrowRight className="w-4 h-4" />
             </button>
-            
-            <p className="text-xs text-foreground/70 mt-3">
-              This form is frontend‑only in this template. You can connect it to an email service or backend later.
-            </p>
           </form>
         </div>
       </div>

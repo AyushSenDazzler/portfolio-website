@@ -7,7 +7,7 @@ interface HeroSectionProps {
 const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
   return (
     <section id="hero" className="pt-6 xl:pt-10 2xl:pt-14">
-      <div className="grid lg:grid-cols-[1.4fr_1.1fr] xl:grid-cols-[1.5fr_1fr] gap-8 xl:gap-10 2xl:gap-14 items-center">
+      <div className="grid lg:grid-cols-[1.2fr_1.3fr] xl:grid-cols-[1.2fr_1.2fr] 2xl:grid-cols-[1.3fr_1.2fr] gap-8 xl:gap-10 2xl:gap-14 items-center">
         {/* Left Content */}
         <div>
           <div className="flex flex-wrap gap-2 mb-5">
@@ -65,7 +65,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
             boxShadow: "0 18px 45px hsl(217 55% 10% / 0.75)"
           }}
         >
-          <div className="grid md:grid-cols-[1.35fr_1.1fr] gap-4">
+          <div className="grid md:grid-cols-[1.2fr_1.3fr] gap-4">
             {/* Code side */}
             <div>
               <p className="text-xs text-foreground/80 mb-2">Recent stack</p>
