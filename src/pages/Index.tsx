@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
+import CertificatesSection from "@/components/CertificatesSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -26,6 +27,7 @@ const Index = () => {
         <HeroSection scrollToSection={scrollToSection} />
         <ProjectsSection />
         <SkillsSection />
+        <CertificatesSection />
         <ExperienceSection />
         <ContactSection />
         <Footer />

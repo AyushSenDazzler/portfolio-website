@@ -27,14 +27,36 @@ interface Project {
 
 const projects: Project[] = [
   {
-    tag: "NLP · Transformers",
-    title: "Context‑aware text classifier",
-    subtitle: "Fine‑tuned transformer model to classify support tickets with imbalanced data.",
+    tag: "Credit Risk · XGBoost",
+    title: "Credit risk prediction model",
+    subtitle: "Production-ready classifier to predict loan defaults using tabular customer data.",
+    body: "Developed an end-to-end feature engineering pipeline and credit risk prediction model to enhance loan risk assesment using cashflow data from 40k users.",
+    pills: ["Python", "XGBoost", "scikit‑learn", "Pandas", "SHAP", "TabPfn", "TabM"],
+    accentPills: [0, 1],
+    metric: "ROC‑AUC: 0.90+ on holdout set.",
+    links: [{ label: "Company Project", href: "#" }],
+    details: {
+      overview: "A supervised ML system to accurately predict loan default risk using historical application and repayment data. Focused on tabular ML, data imputation, and domain-driven feature design.",
+      features: [
+        "Data pipeline for missing value imputation and categorical encoding",
+        "Feature engineering using domain-specific rules and customer histories",
+        "Hyperparameter optimization for XGBoost (grid/random search)",
+        "Comprehensive model validation (cross-validation, ROC analysis, calibration)",
+        "Model explainability with SHAP for feature importance and transparency"
+      ],
+      challenges: "Class imbalance and noisy labels posed prediction challenges. Used stratified sampling, class weighting, and feature selection to improve generalization.",
+      outcome: "Deployed a classifier with >0.85 ROC‑AUC and solid business interpretability to support loan approvals and risk management workflows."
+    }
+  },
+  {
+    tag: "RAG · Transformers · LLM",
+    title: "RAG Based, Question Answering System",
+    subtitle: "Built a RAG based, question answering system to answer questions about incident reports.",
     body: "Designed preprocessing pipeline, experimented with BERT‑based architectures, and deployed an inference API. Focused on class imbalance handling and robust evaluation.",
     pills: ["Python", "PyTorch", "Transformers", "scikit‑learn", "FastAPI"],
     accentPills: [0, 1],
     metric: "Macro‑F1: +8–10% over baseline.",
-    links: [{ label: "GitHub", href: "#" }, { label: "Demo / Notebook", href: "#" }],
+    links: [{ label: "Company Project", href: "#" }],
     details: {
       overview: "A production-ready NLP system designed to automatically categorize customer support tickets into multiple categories with high accuracy, even with severely imbalanced class distributions.",
       features: [
@@ -47,50 +69,6 @@ const projects: Project[] = [
       challenges: "The main challenge was handling extreme class imbalance (some categories had 50x fewer samples). Solved using a combination of SMOTE oversampling, class weights, and focal loss.",
       outcome: "Achieved 8-10% improvement in macro-F1 score compared to baseline models, with inference latency under 100ms per request."
     }
-  },
-  {
-    tag: "Data engineering · Spark",
-    title: "Batch pipeline on Azure",
-    subtitle: "Analytics pipeline processing event data into curated tables for dashboards.",
-    body: "Built PySpark jobs for cleaning, aggregations, and feature computation. Scheduled jobs in Databricks and optimized queries with partitioning and caching.",
-    pills: ["PySpark", "Azure Databricks", "SQL", "Delta / Parquet"],
-    accentPills: [0],
-    metric: "~2–3x faster query times vs naive approach.",
-    links: [{ label: "GitHub", href: "#" }],
-    details: {
-      overview: "An end-to-end data engineering solution that transforms raw event logs into clean, aggregated tables optimized for BI dashboards and analytical queries.",
-      features: [
-        "PySpark ETL jobs processing millions of events daily",
-        "Delta Lake for ACID transactions and time travel",
-        "Partitioning strategy optimized for common query patterns",
-        "Automated data quality checks and alerting",
-        "Scheduled workflows in Databricks with dependency management"
-      ],
-      challenges: "Initial queries were slow due to data skew and inefficient joins. Implemented broadcast joins, partition pruning, and caching strategies to optimize performance.",
-      outcome: "Reduced query times by 2-3x and enabled near real-time dashboard updates with hourly data refreshes."
-    }
-  },
-  {
-    tag: "ML fundamentals · C & Python",
-    title: "From‑scratch ML toolkit",
-    subtitle: "Educational repo implementing ML algorithms to solidify math and code foundations.",
-    body: "Implemented linear/logistic regression, k‑NN, and decision trees from scratch in C/Python to learn memory management, numerics, and algorithmic trade‑offs.",
-    pills: ["C", "Python", "Data structures", "Unit tests"],
-    accentPills: [0, 1],
-    metric: "Focus: clarity, tests, and performance.",
-    links: [{ label: "GitHub", href: "#" }],
-    details: {
-      overview: "A deep-dive educational project implementing core ML algorithms from first principles to understand the mathematics and computational trade-offs behind common techniques.",
-      features: [
-        "Linear regression with gradient descent and normal equations",
-        "Logistic regression with regularization",
-        "k-NN with KD-tree optimization for faster lookups",
-        "Decision trees with Gini and entropy splitting criteria",
-        "Comprehensive unit tests comparing results with scikit-learn"
-      ],
-      challenges: "Implementing numerically stable algorithms in C required careful attention to floating-point precision and memory management.",
-      outcome: "Gained deep understanding of ML fundamentals, memory optimization, and algorithm complexity. All implementations pass unit tests against scikit-learn reference implementations."
-    }
   }
 ];
 
@@ -100,15 +78,15 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="pt-14">
       <div className="mb-5">
-        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
+        <div className="text-sm uppercase tracking-widest text-foreground/80 mb-1">
           <span className="text-primary">Projects</span> · Selected work
         </div>
-        <p className="text-sm text-muted-foreground/70 max-w-sm">
+        <p className="text-sm text-foreground/90 max-w-sm">
           A few end‑to‑end projects that showcase practical ML, data engineering, and solid coding skills.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 xl:gap-5">
         {projects.map((project, i) => (
           <article 
             key={i} 
@@ -118,7 +96,7 @@ const ProjectsSection = () => {
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5">{project.tag}</div>
             <h3 className="text-base font-semibold mb-1.5 group-hover:text-primary transition-colors">{project.title}</h3>
             <p className="text-xs text-muted-foreground mb-2">{project.subtitle}</p>
-            <p className="text-sm text-foreground/85 mb-3">{project.body}</p>
+            <p className="text-sm text-foreground/95 mb-3">{project.body}</p>
             
             <div className="flex flex-wrap gap-1.5 mb-3">
               {project.pills.map((pill, j) => (

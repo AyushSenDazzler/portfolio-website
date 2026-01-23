@@ -17,7 +17,7 @@ const skillGroups = [
     ]
   },
   {
-    title: "Data Manupulation & EDA",
+    title: "Data Manipulation & EDA",
     skills: [
       { name: "Pandas", accent: true },
       { name: "Numpy", accent: true },
@@ -45,14 +45,6 @@ const skillGroups = [
       { name: "Credit-Risk", accent: true },
       { name: "Time‑series", accent: false }
     ]
-  },
-  {
-    title: "Learning & Certifications",
-    skills: [
-      { name: "GATE DS & AI Prep", accent: true },
-      { name: "Online ML courses", accent: false },
-      { name: "Azure / cloud learning", accent: false }
-    ]
   }
 ];
 
@@ -60,10 +52,10 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="pt-14">
       <div className="mb-5">
-        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
+        <div className="text-sm uppercase tracking-widest text-foreground/80 mb-1">
           <span className="text-primary">Skills</span> · Tech stack
         </div>
-        <p className="text-sm text-muted-foreground/70 max-w-sm">
+        <p className="text-sm text-foreground/90 max-w-sm">
           Tools and languages used across projects, interviews, and self‑driven learning.
         </p>
       </div>

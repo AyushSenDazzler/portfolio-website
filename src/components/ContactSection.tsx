@@ -17,10 +17,10 @@ const ContactSection = () => {
   return (
     <section id="contact" className="pt-14">
       <div className="mb-5">
-        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
+        <div className="text-sm uppercase tracking-widest text-foreground/80 mb-1">
           <span className="text-primary">Contact</span> · Reach out
         </div>
-        <p className="text-sm text-muted-foreground/70 max-w-sm">
+        <p className="text-sm text-foreground/90 max-w-sm">
           Best ways to contact, plus a quick form. Email or LinkedIn are usually fastest.
         </p>
       </div>
@@ -30,7 +30,7 @@ const ContactSection = () => {
         <div className="card-portfolio">
           <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5">Preferred channels</div>
           <h3 className="text-base font-semibold mb-3">Let's collaborate</h3>
-          <p className="text-sm text-foreground/85 mb-4">
+          <p className="text-sm text-foreground/95 mb-4">
             Open to full-time and freelance opportunities in ML engineering, NLP, and applied AI development.
           </p>
           
@@ -65,7 +65,7 @@ const ContactSection = () => {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Your name"
                 required
-                className="w-full rounded-xl px-3 py-2 border border-border/60 bg-card/98 text-foreground text-sm outline-none focus:border-primary/80 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50"
+                className="w-full rounded-xl px-3 py-2 border border-border/60 bg-white text-gray-900 text-sm outline-none focus:border-primary/80 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-gray-400"
               />
             </div>
             
@@ -78,7 +78,7 @@ const ContactSection = () => {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="you@company.com"
                 required
-                className="w-full rounded-xl px-3 py-2 border border-border/60 bg-card/98 text-foreground text-sm outline-none focus:border-primary/80 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50"
+                className="w-full rounded-xl px-3 py-2 border border-border/60 bg-white text-gray-900 text-sm outline-none focus:border-primary/80 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-gray-400"
               />
             </div>
             
@@ -90,7 +90,7 @@ const ContactSection = () => {
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Tell me briefly about the role, project, or collaboration."
                 rows={4}
-                className="w-full rounded-xl px-3 py-2 border border-border/60 bg-card/98 text-foreground text-sm outline-none focus:border-primary/80 focus:ring-1 focus:ring-primary/50 transition-all resize-y placeholder:text-muted-foreground/50"
+                className="w-full rounded-xl px-3 py-2 border border-border/60 bg-white text-gray-900 text-sm outline-none focus:border-primary/80 focus:ring-1 focus:ring-primary/50 transition-all resize-y placeholder:text-gray-400"
               />
             </div>
             
@@ -99,7 +99,7 @@ const ContactSection = () => {
               <ArrowRight className="w-4 h-4" />
             </button>
             
-            <p className="text-xs text-muted-foreground/60 mt-3">
+            <p className="text-xs text-foreground/70 mt-3">
               This form is frontend‑only in this template. You can connect it to an email service or backend later.
             </p>
           </form>
