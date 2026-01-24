@@ -5,6 +5,23 @@ interface NavbarProps {
   scrollToSection: (id: string) => void;
 }
 
+const KaggleIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="7" y1="4" x2="7" y2="20" />
+    <line x1="7" y1="12" x2="17" y2="4" />
+    <line x1="7" y1="12" x2="17" y2="20" />
+  </svg>
+);
+
 const Navbar = ({ scrollToSection }: NavbarProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -76,6 +93,15 @@ const Navbar = ({ scrollToSection }: NavbarProps) => {
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.kaggle.com/ayushkumarsen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-colors"
+                aria-label="Kaggle"
+              >
+                <img src="/kaggle.svg" alt="Kaggle" className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -176,6 +202,15 @@ const Navbar = ({ scrollToSection }: NavbarProps) => {
                 >
                   <Linkedin className="w-4 h-4" />
                   LinkedIn
+                </a>
+                <a 
+                  href="https://www.kaggle.com/ayushkumarsen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-colors text-sm"
+                >
+                  <KaggleIcon className="w-4 h-4" />
+                  Kaggle
                 </a>
               </div>
             </div>
