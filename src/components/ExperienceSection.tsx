@@ -7,12 +7,12 @@ const ExperienceSection = () => {
         <div className="text-sm uppercase tracking-widest text-foreground/80 mb-1">
           <span className="text-primary">Timeline</span> · Experience
         </div>
-        <p className="text-sm text-foreground/90 max-w-sm">
+        <p className="text-sm text-foreground/90 max-w-sm xl:max-w-md 2xl:max-w-lg">
           A quick snapshot of education, internship, and current focus, with availability highlighted.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-4 xl:gap-6 2xl:gap-8">
         {/* Experience Card */}
         <div className="card-portfolio">
           <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5">Experience</div>

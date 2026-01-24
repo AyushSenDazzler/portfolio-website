@@ -12,14 +12,24 @@ export default {
         lg: "2rem",
         xl: "2.5rem",
         "2xl": "3rem",
+        "3xl": "4rem",
       },
       screens: {
         sm: "640px",
         md: "768px",
         lg: "1024px",
         xl: "1280px",
-        "2xl": "1400px",
+        "2xl": "1536px",
+        "3xl": "1920px",
       },
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1920px",
     },
     extend: {
       colors: {

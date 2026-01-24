@@ -2,6 +2,17 @@ import { Mail, Linkedin, Github, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
+const KaggleIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 32 32"
+    fill="currentColor"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M105.75 102.968c-.06.238-.298.357-.713.357H97.1c-.477 0-.89-.208-1.248-.625L82.746 86.028l-3.655 3.477v12.93c0 .595-.298.892-.892.892h-6.152c-.595 0-.892-.297-.892-.892V43.5c0-.593.297-.89.892-.89H78.2c.594 0 .892.298.892.89v36.288l15.692-15.87c.416-.415.832-.624 1.248-.624h8.204c.356 0 .593.15.713.445.12.357.09.624-.09.803L88.274 80.588l17.297 21.488c.237.238.297.535.18.892" transform="matrix(.527027 0 0 .527027 -30.632288 -22.45559)" />
+  </svg>
+);
+
 const ContactSection = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -20,12 +31,12 @@ const ContactSection = () => {
         <div className="text-sm uppercase tracking-widest text-foreground/80 mb-1">
           <span className="text-primary">Contact</span> · Reach out
         </div>
-        <p className="text-sm text-foreground/90 max-w-sm">
+        <p className="text-sm text-foreground/90 max-w-sm xl:max-w-md 2xl:max-w-lg">
           Best ways to contact, plus a quick form. Email or LinkedIn are usually fastest.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-4 xl:gap-6 2xl:gap-8">
         {/* Contact Info */}
         <div className="card-portfolio">
           <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5">Preferred channels</div>
@@ -46,6 +57,10 @@ const ContactSection = () => {
             <a href="https://github.com/AyushSenDazzler" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-3 py-2 rounded-full bg-card/90 border border-border/50 text-sm text-muted-foreground hover:border-primary/50 transition-colors">
               <Github className="w-4 h-4 text-primary flex-shrink-0" />
               <span><strong className="text-foreground font-medium">GitHub:</strong> @ayushsendazzler</span>
+            </a>
+            <a href="https://www.kaggle.com/ayushkumarsen" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-3 py-2 rounded-full bg-card/90 border border-border/50 text-sm text-muted-foreground hover:border-primary/50 transition-colors">
+              <KaggleIcon className="w-4 h-4 text-primary flex-shrink-0" />
+              <span><strong className="text-foreground font-medium">Kaggle:</strong> @ayushkumarsen</span>
             </a>
           </div>
         </div>

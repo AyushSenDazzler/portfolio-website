@@ -53,7 +53,7 @@ const projects: Project[] = [
     title: "RAG Based, Question Answering System",
     subtitle: "Built a RAG based, question answering system to answer questions about incident reports.",
     body: "Designed preprocessing pipeline, experimented with BERT‑based architectures, and deployed an inference API. Focused on class imbalance handling and robust evaluation.",
-    pills: ["Python", "PyTorch", "Transformers", "scikit‑learn", "FastAPI"],
+    pills: ["Python", "Transformers", "scikit‑learn","FastAPI"],
     accentPills: [0, 1],
     metric: "Macro‑F1: +8–10% over baseline.",
     links: [{ label: "Company Project", href: "#" }],
@@ -81,12 +81,12 @@ const ProjectsSection = () => {
         <div className="text-sm uppercase tracking-widest text-foreground/80 mb-1">
           <span className="text-primary">Projects</span> · Selected work
         </div>
-        <p className="text-sm text-foreground/90 max-w-sm">
+        <p className="text-sm text-foreground/90 max-w-sm xl:max-w-md 2xl:max-w-lg">
           A few end‑to‑end projects that showcase practical ML, data engineering, and solid coding skills.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-4 xl:gap-6 2xl:gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-4 xl:gap-6 2xl:gap-8 3xl:gap-10">
         {projects.map((project, i) => (
           <article 
             key={i} 

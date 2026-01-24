@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Award, ExternalLink, Calendar, X, Eye } from "lucide-react";
+import { BadgeCheck, ExternalLink, Calendar, Eye } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -14,50 +14,50 @@ interface Certificate {
   credentialId?: string;
   verifyUrl?: string;
   skills: string[];
-  mediaUrl?: string; // URL to PDF or image
-  mediaType?: "pdf" | "image"; // Type of media
+  driveFileId?: string;
 }
+
+// Helper to generate Google Drive embed URL
+const getDrivePreviewUrl = (fileId: string) => 
+  `https://drive.google.com/file/d/${fileId}/preview`;
 
 const certificates: Certificate[] = [
   {
-    title: "Azure Data Scientist Associate",
-    issuer: "Microsoft",
-    date: "2024",
-    credentialId: "XXXXXXXX",
+    title: "Smart India Hackathon 2023",
+    issuer: "Government of India",
+    date: "December 2023",
+    credentialId: "None",
     verifyUrl: "#",
-    skills: ["Azure ML", "Python", "Data Science"],
-    mediaUrl: "/certificates/azure-ds.pdf", // Replace with actual path
-    mediaType: "pdf"
+    skills: ["Python", "Software Engineering", "SBOM"],
+    driveFileId: "1hyUikfrdXHhCqNX5mtDdADzKSkFhws8z"
   },
   {
-    title: "Machine Learning Specialization",
-    issuer: "Coursera (Stanford / DeepLearning.AI)",
-    date: "2024",
-    credentialId: "XXXXXXXX",
+    title: "WorldQuant International Quant Championship",
+    issuer: "WorldQuant Brain",
+    date: "December 2024",
+    credentialId: "None",
     verifyUrl: "#",
-    skills: ["Supervised Learning", "Neural Networks", "ML Strategy"],
-    mediaUrl: "/certificates/ml-specialization.png", // Replace with actual path
-    mediaType: "image"
+    skills: ["Python", "Finance", "Statistics"],
+    driveFileId: "1yBEGfJXueTFRQWTSOM4VNWho1PAdRksx"
   },
   {
-    title: "Deep Learning Specialization",
-    issuer: "Coursera (DeepLearning.AI)",
-    date: "2023",
-    credentialId: "XXXXXXXX",
+    title: "Python OOPS",
+    issuer: "NextWave",
+    date: "April 2024",
+    credentialId: "BOYGLNGRPN",
     verifyUrl: "#",
-    skills: ["CNNs", "RNNs", "Transformers", "TensorFlow"],
-    mediaUrl: "/certificates/dl-specialization.png", // Replace with actual path
-    mediaType: "image"
+    skills: ["Python", "OOPs"],
+    driveFileId: "1SwYBoNtUiX70NCBQBdamzl6Tk5fofo7F"
   },
+  
   {
-    title: "AWS Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    credentialId: "XXXXXXXX",
+    title: "Databricks Associate",
+    issuer: "Databricks",
+    date: "February 2026",
+    credentialId: "None",
     verifyUrl: "#",
-    skills: ["AWS", "Cloud Computing", "S3", "EC2"],
-    mediaUrl: "/certificates/aws-cloud.pdf", // Replace with actual path
-    mediaType: "pdf"
+    skills: ["Databricks", "Spark", "Python"],
+    driveFileId: ""
   }
 ];
 
@@ -70,12 +70,12 @@ const CertificatesSection = () => {
         <div className="text-sm uppercase tracking-widest text-foreground/80 mb-1">
           <span className="text-primary">Certificates</span> · Credentials
         </div>
-        <p className="text-sm text-foreground/90 max-w-sm">
+        <p className="text-sm text-foreground/90 max-w-sm xl:max-w-md 2xl:max-w-lg">
           Professional certifications and courses completed to strengthen core skills.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-5 gap-4 xl:gap-5 2xl:gap-6">
         {certificates.map((cert, i) => (
           <div 
             key={i} 
@@ -84,7 +84,7 @@ const CertificatesSection = () => {
           >
             <div className="flex items-start justify-between gap-2 mb-3">
               <div className="w-10 h-10 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0">
-                <Award className="w-5 h-5 text-primary" />
+                <BadgeCheck className="w-5 h-5 text-primary" />
               </div>
               <div className="flex items-center gap-1 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                 <Eye className="w-3.5 h-3.5" />
@@ -130,7 +130,7 @@ const CertificatesSection = () => {
               <DialogHeader className="p-4 border-b border-border/50">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0">
-                    <Award className="w-5 h-5 text-primary" />
+                    <BadgeCheck className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <DialogTitle className="text-lg font-semibold">
@@ -156,28 +156,24 @@ const CertificatesSection = () => {
               </DialogHeader>
 
               <div className="flex-1 overflow-auto p-4 bg-background/50" style={{ maxHeight: "calc(90vh - 100px)" }}>
-                {selectedCert.mediaUrl ? (
-                  selectedCert.mediaType === "pdf" ? (
-                    <iframe
-                      src={selectedCert.mediaUrl}
-                      className="w-full h-[70vh] rounded-lg border border-border/30"
-                      title={`${selectedCert.title} Certificate`}
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center">
-                      <img
-                        src={selectedCert.mediaUrl}
-                        alt={`${selectedCert.title} Certificate`}
-                        className="max-w-full max-h-[70vh] rounded-lg border border-border/30 object-contain"
-                      />
-                    </div>
-                  )
+                {selectedCert.driveFileId && selectedCert.driveFileId !== "YOUR_DRIVE_FILE_ID_1" && 
+                 selectedCert.driveFileId !== "YOUR_DRIVE_FILE_ID_2" && 
+                 selectedCert.driveFileId !== "YOUR_DRIVE_FILE_ID_3" && 
+                 selectedCert.driveFileId !== "YOUR_DRIVE_FILE_ID_4" ? (
+                  <iframe
+                    src={getDrivePreviewUrl(selectedCert.driveFileId)}
+                    className="w-full h-[70vh] rounded-lg border border-border/30"
+                    title={`${selectedCert.title} Certificate`}
+                    allow="autoplay"
+                    sandbox="allow-scripts allow-same-origin"
+                  />
                 ) : (
                   <div className="flex flex-col items-center justify-center h-[50vh] text-foreground/60">
-                    <Award className="w-16 h-16 mb-4 text-primary/30" />
-                    <p className="text-sm">Certificate media not available</p>
-                    <p className="text-xs text-foreground/40 mt-1">
-                      Add the certificate file path to display it here
+                    <BadgeCheck className="w-16 h-16 mb-4 text-primary/30" />
+                    <p className="text-sm">Certificate preview not available</p>
+                    <p className="text-xs text-foreground/40 mt-1 text-center max-w-md">
+                      To display the certificate, add your Google Drive file ID.<br />
+                      Get it from the share link: drive.google.com/file/d/<strong>FILE_ID</strong>/view
                     </p>
                   </div>
                 )}

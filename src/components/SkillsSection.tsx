@@ -55,12 +55,12 @@ const SkillsSection = () => {
         <div className="text-sm uppercase tracking-widest text-foreground/80 mb-1">
           <span className="text-primary">Skills</span> · Tech stack
         </div>
-        <p className="text-sm text-foreground/90 max-w-sm">
+        <p className="text-sm text-foreground/90 max-w-sm xl:max-w-md 2xl:max-w-lg">
           Tools and languages used across projects, interviews, and self‑driven learning.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 xl:gap-5 2xl:gap-6">
         {skillGroups.map((group, i) => (
           <div key={i} className="card-portfolio">
             <div className="text-sm font-medium mb-2">{group.title}</div>

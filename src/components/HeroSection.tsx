@@ -7,7 +7,7 @@ interface HeroSectionProps {
 const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
   return (
     <section id="hero" className="pt-6 xl:pt-10 2xl:pt-14">
-      <div className="grid lg:grid-cols-[1.2fr_1.3fr] xl:grid-cols-[1.2fr_1.2fr] 2xl:grid-cols-[1.3fr_1.2fr] gap-8 xl:gap-10 2xl:gap-14 items-center">
+      <div className="grid lg:grid-cols-[1.2fr_1.3fr] xl:grid-cols-[1.2fr_1.2fr] 2xl:grid-cols-[1.3fr_1.2fr] 3xl:grid-cols-[1.4fr_1.2fr] gap-8 xl:gap-10 2xl:gap-14 3xl:gap-20 items-center">
         {/* Left Content */}
         <div>
           <div className="flex flex-wrap gap-2 mb-5">
@@ -17,7 +17,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
             </div>
             <div className="text-xs px-3 py-1.5 rounded-full border border-foreground/30 bg-card/90 text-foreground/90 inline-flex items-center gap-2 animate-fade-in [animation-delay:100ms]">
               <span>🎓</span>
-              <span>B.S Data Science & Applications)</span>
+              <span>B.S Data Science & Applications |<strong className="text-primary font-medium"> IIT Madras</strong></span>
             </div>
           </div>
 
